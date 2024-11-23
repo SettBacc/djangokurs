@@ -11,18 +11,18 @@
         <h3>Autor: Piotr</h3>
         <h4>Jebać cię</h4>
     </div>
+    {% comment "Komentarz autora" %}
+    Tutaj lista postów
+    {% endcomment %}
+    {% for post in posts %}
     <div>
-        <p>To jest akapit</p>
-        <em>Wyróżniony tekst (Italic)</em><br>
-        <strong>Pogrubiony tekst</strong><br>
-        <a href="https://www.youtube.com/watch?v=D7liwdjvhWc&ab_channel=KendrickLamar">LINK</a>
+        <p>opublikowany: {{ post.publish_date }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <em>{{ post.text|linebreaksbr }}</em>
     </div>
+    {% endfor %}
     <div>
-        <ul>
-            <li>Elementy listy</li>
-            <li>Elementy listy</li>
-            <li>Elementy listy</li>
-        </ul>
+
     </div>
 </body>
 </html>
