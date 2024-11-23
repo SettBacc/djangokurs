@@ -1,0 +1,44 @@
+h1 a,h2 a{
+    color: #31e060;
+}
+
+body {
+    padding-left:15px;
+    font-family: "Roboto", sans-serif;
+}
+
+.page-header{
+    background-color: #98e8f5;
+    margin-top: 0;
+    paddig 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36 px;
+    tex-decoration: none;
+}
+
+.data{
+    color: #b0b7b8;
+}
+
+.save {
+    float: right;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.post {
+    margin-bottom: 70px;
+}
+
+.post h2 a, .post h1 a:visited {
+    color #000000;
+}
