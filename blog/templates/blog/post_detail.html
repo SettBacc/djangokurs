@@ -7,8 +7,15 @@
             {{ post.publish_date }}
         </div>
         {% endif %}
+        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         <h2>{{ post.title }}</h2>
-        <img src="{{ post.image.url }}" alt="Obrazek" width="250px">
+
+        {% if post.image %}
+        <img src="{{ post.image.url }}" alt="Obrazek">
+        {% else %}
+        <p>Brak obrazka</p>
+        {% endif %}
+
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
 {% endblock %}
