@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
@@ -32,8 +33,11 @@ class ImageDisplay(DetailView):
 
 
 def post_list(request):
-    posts = Post.objects.filter(publish_date__lte=timezone.now()).order_by('publish_date')
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    posts = Post.objects.all().order_by('-publish_date')
+    paginator = Paginator(posts, 10)  # Wyświetlaj 10 postów na stronę
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'blog/post_list.html', {'page_obj': page_obj})
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)

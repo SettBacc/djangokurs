@@ -1,3 +1,30 @@
+.header-bg {
+    background-color: #f59b42;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtelny cień */
+    padding: 10px 0;
+}
+
+.header-bg h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333; /* Kolor tekstu */
+}
+
+.header-bg .btn {
+    padding: 8px 16px;
+    background-color: #28a745; /* Kolor przycisku */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.header-bg .btn:hover {
+    background-color: #218838; /* Ciemniejszy kolor na hover */
+}
+
+
 h1 a,h2 a{
     color: #eb3440;
 }

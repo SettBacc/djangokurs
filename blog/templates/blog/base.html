@@ -1,23 +1,33 @@
 {% load static %}
-    <html lang="pl">
-        <head>
-            <meta charset="UTF-8">
-            <title>Blog dla programistów</title>
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-            <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-        </head>
-<body>
-    <div class="page-header">
-        <a href="{% url 'post_new' %}" class = "top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-        <h1><a href="/">Blog dla programistów</a></h1>
-    </div>
-    <div class="content container">
-        <div class="row">
-            <div class="col-md-8">
-                {% block content %}
-                {% endblock %}
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Blog dla programistów</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Nagłówek z tłem -->
+        <div class="header-bg" style="background-color: #f59b42; padding: 20px;">
+        <header class="d-flex justify-content-between align-items-center">
+        <h1>Blog dla programistów</h1>
+        {% if user.is_authenticated %}
+            <a href="{% url 'post_new' %}" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Dodaj post
+            </a>
+        {% endif %}
+        </header>
+</div>
+
+        <!-- Główna zawartość strony -->
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% block content %}
+                    {% endblock %}
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

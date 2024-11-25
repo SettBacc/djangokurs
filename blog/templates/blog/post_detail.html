@@ -7,7 +7,12 @@
             {{ post.publish_date }}
         </div>
         {% endif %}
-        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% if user.is_authenticated %}
+        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
+        <span class="glyphicon glyphicon-pencil"></span> Edytuj
+        </a>
+        <a class="btn btn-success" href="{% url 'post_new' %}">Dodaj nowy post</a>
+        {% endif %}
         <h2>{{ post.title }}</h2>
 
         {% if post.image %}
